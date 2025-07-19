@@ -75,4 +75,65 @@ function loginUserMessage(username = "sam"){
     }
     return `${username} just logged in`
 }
-console.log(loginUserMessage())
+//console.log(loginUserMessage())
+
+
+
+
+
+
+
+// shoping cart ky andr saman add kiye he jta hy user, apko nai pta k kitni cheezein bs apny add krna hy sbko.apko nai pta kitny arguments any waly hn to ap us lehaz sy parameters taiyar krty hn.
+function calculateCartPrice(num1){
+    return num1
+}
+//console.log(calculateCartPrice(2))
+//output: 2
+
+
+function calculateCartPrice(num1){
+    return num1
+}
+//.log(calculateCartPrice(200, 400, 500))
+//output: 200. isko solve krny ky lie hmary pas rest operator hota hy.
+
+
+function calculateCartPrice(...num1){
+    return num1
+}
+//console.log(calculateCartPrice(200, 400, 500))
+//output: [200, 400, 500] 
+
+
+
+function calculateCartPrice(val1, val2, ...num1){
+    return num1
+}
+//console.log(calculateCartPrice(200, 400, 500, 2000))
+//output: [500, 2000].        val1, val2, ...num1 
+
+
+const user = {
+    username: "maaz",
+    price: 199
+}
+function handleObject(anyobject){
+    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`)
+}
+//handleObject(user)
+//Username is maaz and price is 199.
+
+//handleObject({
+//    username : "sam",
+//    price : 399
+//})
+
+
+
+const myNewArray = [200, 400, 100, 600]
+function returnSecondValue(getArray){
+    return getArray[1]
+}
+//console.log(returnSecondValue(myNewArray));
+console.log(returnSecondValue([200,400,500,1000]));
+
