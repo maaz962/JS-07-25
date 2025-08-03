@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    
+    <div>
+        <h1 class="heading" id="title">DOM Learning on chai aur Code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">One</li>
+            <li class="list-item">Two</li>
+            <li class="list-item">Three</li>
+            <li class="list-item">Four</li>
+        </ul>
+    </div>
+
+    <!-- innerContent: sara data aye ga agr display none b kia tb b
+    innerHTML
+    innerText : sirf jo data hmy nazar araha hy ui pr wohi nazar aye ga
+    document.getElementById('title')
+    document.getElementById('title').id
+    document.getElementById('title').className
+
+    document.getElementById('title').getAttribute('id')
+    document.getElementById('title').setAttribute('class' ,'test heading')
+
+    const title = document.getElementById('title')
+    title.id
+    title.style.backgroundColor = 'green'
+    title.style.padding = '15px'
+    title.style.borderRadius = '15px'
+
+    document.querySelector('h1') : page me jo first h1 hy wo dia jaye ga.
+    document.querySelector('h2')
+    document.querySelector('.heading')
+    document.querySelector('input[type=password]')
+    document.querySelector('p:first-child')
+    document.querySelector('ul')
+    const myul = document.querySelector('ul')
+    myul.querySelector('li')
+    const turnGreen = myul.querySelector('li')
+    turnGreen.style.backgroundColor = 'green'
+    turnGreen.style.padding = '10px'
+    turnGreen.innerText
+    turnGreen.innerText = 'five'
+
+    isny nodelist di hy or ye aik array hy jis ky andr na loops lga sakta hu, or na maps call krsakta hu, ye aik array nai hy ye aik nodelist hy,
+    document.querySelectorAll('li')
+    const LiList = document.querySelectorAll('li')
+    LiList
+    const myArr = [1, 2, 3, 4]
+    myArr
+    is array me hm maps b call krsakty hn,
+
+    LiList.style.color = 'green'  // error dy dia ye kaam aisy nai krsakta, nodelist ka working method different hy,
+    LiList[0].style.color = 'green'  // ab chal gya ye,
+    //array jesy dekhta hy pr array hy nai, or array jesi kafi khubian milti hn iski.
+
+    const myH1 = document.querySelectorAll('h1')
+    myH1 // again nodelist aye hy h1 ki
+    myH1.style.color = 'green'  // error dy ga keu k ye nodelist hy bhai or apny define he nai kia
+    myH1[0].style.color = 'green' // now run successfully
+
+    // nodelist me hmy forEach loop b milta hy
+    LiList
+    LiList.forEach(function() {})
+    LiList.forEach(function(l) {
+    l.style.backgroundColor = 'green'
+    })
+
+    
+    document.getElementByClassName('list-item')  //ye to HTML COLLECTION mila hy or isme loop ka kuch dia he nai huwa.  
+    const tempClassList = document.getElementByClassName('list-item')
+    tempClassList
+    tempClassList.forEach(function(li) {
+    console.log(li)
+    })//error aye ga.
+    tempClassList
+    Array.from(tempClassList) // ye array me convert hogya hhy.
+    const myConvertedArray = Array.from(tempClassList)
+    myConvertedArray    // ye array ban gya 
+    myConvertedArray.forEach(function(li) {
+    li.style.color = 'orange'
+    })
+    
+    
+document.querySelectorAll('h2')
+// //NodeList(14) [h2.vector-pinnable-header-label, h2#History, h2#Trademark, h2#Website_client-side_usage, h2#Other_usage, h2#Execution, h2#Features, h2#Syntax, h2#Security, h2#Development_tools, h2#Related_technologies, h2#References, h2#Further_reading, h2#External_links]
+const allH2 = document.querySelectorAll('h2')
+// //undefined
+allH2[0].innerText
+// //'Contents'
+allH2[2].innerText
+// //'Trademark'
+allH2.forEach(function (h) {
+    h.style.color = 'red'
+})
+// //undefined
+
+allH2.forEach(function (h) {
+    h.style.color = 'yellow';
+    h.style.backgroundColor = 'green';
+    h.style.padding = '15px'})
+
+    
+    
+    
+    
+    -->
+</body>
+</html>
