@@ -42,3 +42,75 @@ buttons.forEach(function (button) {
 
 
 ```
+
+## project-2: Solution
+```javascript
+
+// pehla problem hm solve kry gy k input ky andr sy values kesy nikalni hy: wo event ky through he nikaly gy.
+//hmy sb sy pehly form ko select krna pry ga keu k isme submit event hoga, calculate aik submit event hy.
+//form jb b submit hota hy to ya to post type sy hota hy ya get type sy,lekin jb b submit hota hy uski values URL me ya SERVER ky pas chali jati hn,usy hmko rokna pary ga,
+// value hmy string me mily gi pr hm usy int me parse krdy gy.
+// jesy he ap click krty hn ap chahty hn values hmary pas ajaye, hm us event pr values chahty hn,
+const form = document.querySelector('form');
+//this usecase will give you empty value.
+//const height = parseInt(document.querySelector('#height').value);
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a valid height ${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a valid weight ${weight}`;
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    //show the result;
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
+
+```
+
+## project-2.1: Extended Solution
+```javascript
+// pehla problem hm solve kry gy k input ky andr sy values kesy nikalni hy: wo event ky through he nikaly gy.
+//hmy sb sy pehly form ko select krna pry ga keu k isme submit event hoga, calculate aik submit event hy.
+//form jb b submit hota hy to ya to post type sy hota hy ya get type sy,lekin jb b submit hota hy uski values URL me ya SERVER ky pas chali jati hn,usy hmko rokna pary ga,
+// value hmy string me mily gi pr hm usy int me parse krdy gy.
+// jesy he ap click krty hn ap chahty hn values hmary pas ajaye, hm us event pr values chahty hn,
+const form = document.querySelector('form');
+//this usecase will give you empty value.
+//const height = parseInt(document.querySelector('#height').value);
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a valid height ${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a valid weight ${weight}`;
+  }
+
+  const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+  //Category detection:
+  let message = '';
+  if (bmi < 18.6) {
+    message = `Underweight: Your BMI is ${bmi}`;
+  } else if (bmi >= 18.6 && bmi <= 24.9) {
+    message = `Normal: Your BMI is ${bmi}`;
+  } else {
+    message = `Overweight: Your BMI is ${bmi}`;
+  }
+  //show the result;
+  results.innerHTML = `<span>${message}</span>`;
+});
+```
