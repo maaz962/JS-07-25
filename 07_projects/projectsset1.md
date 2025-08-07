@@ -5,7 +5,7 @@
 
 # Solution code
 
-## project 1
+## project 1 - Color Changer
 
 ```javascript
 console.log("Maaz")
@@ -43,7 +43,7 @@ buttons.forEach(function (button) {
 
 ```
 
-## project-2: Solution
+## project-2: BMI Generator Solution
 ```javascript
 
 // pehla problem hm solve kry gy k input ky andr sy values kesy nikalni hy: wo event ky through he nikaly gy.
@@ -113,4 +113,17 @@ form.addEventListener('submit', function (e) {
   //show the result;
   results.innerHTML = `<span>${message}</span>`;
 });
+```
+
+## project-3: Digital Clock Solution
+```javascript
+const clock = document.getElementById('clock');
+
+setInterval(function () {
+  let date = new Date();
+  //console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+
 ```
