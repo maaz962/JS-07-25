@@ -127,3 +127,104 @@ setInterval(function () {
 
 
 ```
+
+## project-3: Guess the Number Solution
+```javascript
+let randomNumber = parseInt(Math.random() * 100 + 1);
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+
+const p = document.createElement('p');
+
+let prevGuess = [];
+let numGuess = 1;
+
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    //console.log(guess);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess) {
+  // aik mjy guess do me usy validate krdu ga. ye dekhny ky liye jo usny number guess kia hy wo koi alphabet to nai hy na, valid hy ya nai(e.g:number), wo value 1 sy less ya 100 sy ziada to nai dy rha.
+  //ye bohat use hoga validateGuess function , datbase me, email ya number ko dekhny ky liye.
+  if (isNaN(guess)) {
+    alert('Please enter a valid number');
+  } else if (guess < 1) {
+    alert('Please enter a number more than 1');
+  } else if (guess > 100) {
+    alert('Please enter a number less than 100');
+  } else {
+    prevGuess.push(guess);
+    if (numGuess === 11) {
+      displayGuess(guess);
+      displayMessage(`Game Over. Random num was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess();
+    }
+  }
+}
+
+function checkGuess(guess) {
+  // validate sy validation mila hy, koi message print nai kia usny, isme hm print krwaye gy.
+  //value random num ky equal hy? agr jeet gaye to bolo , low ya high hy to ye b btao.
+  if (guess === randomNumber) {
+    displayMessage('You Guessed it right');
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage('Number is too low');
+  } else if (guess < randomNumber) {
+    displayMessage('Number is too high');
+  }
+}
+
+function displayGuess(guess) {
+  //Values ko clean kry gy, guess or remianing guess ko update kry ga.
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess},`;
+  numGuess++;
+  remaining.innerHTML = `${11 - numGuess}`;
+}
+
+function displayMessage(message) {
+  // msg dispplay krdy gy, input ki value khali krdy gy, or remaining numbers ko kam krdy gy, or innerHTML change krdy gy,
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  p.classList.add('button');
+  p.innerHTML = '<h2 id="newGame">Start new Game</h2>';
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', function (e) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${11 - numGuess}`;
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(p);
+    playGame = true;
+  });
+}
+
+
+```
