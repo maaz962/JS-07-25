@@ -130,6 +130,7 @@ setInterval(function () {
 
 ## project-3: Guess the Number Solution
 ```javascript
+
 let randomNumber = parseInt(Math.random() * 100 + 1);
 const submit = document.querySelector('#subt');
 const userInput = document.querySelector('#guessField');
@@ -171,7 +172,7 @@ function validateGuess(guess) {
       endGame();
     } else {
       displayGuess(guess);
-      checkGuess();
+      checkGuess(guess);
     }
   }
 }
@@ -180,12 +181,12 @@ function checkGuess(guess) {
   // validate sy validation mila hy, koi message print nai kia usny, isme hm print krwaye gy.
   //value random num ky equal hy? agr jeet gaye to bolo , low ya high hy to ye b btao.
   if (guess === randomNumber) {
-    displayMessage('You Guessed it right');
+    displayMessage(`You Guessed it right`);
     endGame();
   } else if (guess < randomNumber) {
-    displayMessage('Number is too low');
-  } else if (guess < randomNumber) {
-    displayMessage('Number is too high');
+    displayMessage(`Number is too low`);
+  } else if (guess > randomNumber) {
+    displayMessage(`Number is too high`);
   }
 }
 
